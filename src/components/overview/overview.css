@@ -1,0 +1,13 @@
+.no-bullets{
+    list-style-type: none;
+    text-align: left;
+}
+
+.back-button{
+    align-items: flex-end;
+    margin:25px;
+}
+
+.header-row{
+    display: flex;
+}

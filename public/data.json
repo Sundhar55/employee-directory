@@ -1,0 +1,26 @@
+{
+  "John Hartman":
+   [
+    "CEO",
+    {
+        "direct-subordinates": [
+        "Samad Pitt",
+        "Leanna Hogg"
+        ]
+    }
+   ],
+   "Samad Pitt": 
+   [
+    "production supervisor",
+    {
+      "direct-subordinates": [
+        "Aila Hodgson",
+        "Amaya Knight"
+      ]
+    }
+   ],
+   "Amaya Knight":
+   [
+    "employee"
+   ]
+ } 
