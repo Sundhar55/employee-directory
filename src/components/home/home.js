@@ -4,14 +4,19 @@ import React from "react";
 import './home.css';
 import {useState, useEffect} from "react"
 import { useHistory } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import {SetEmpolyeeAction} from '../../store/actions/index';
   
 const Home = (props) =>{
     const [empName, setEmpName] = useState('');
     const [searchBool, setSearchBool]= useState(false);
+
     const history = useHistory();
+    const selectEmp = useSelector(state => state);
+    console.log('before', selectEmp);
     let [error, setError] = useState(false);
     let emp = [];
+    const dispatch = useDispatch();
 
     const getEmployee = (employee)=>{
         fetch('data.json',{
@@ -23,10 +28,14 @@ const Home = (props) =>{
         .then(res => res.json())
         .then(response => {
             emp =response[employee];
+            
             if(emp === undefined){
                 setError(true);
             }else{
+                console.log('before dispatch', emp)
+                dispatch(SetEmpolyeeAction({emp}))
                 history.push('/overview/',{emp} );
+
             }
         })
         .catch(err=>{ console.log('err is', err)}); 
@@ -45,6 +54,7 @@ const Home = (props) =>{
 
     const SearchEmployee=(e)=>{
         e.preventDefault();
+        
         setSearchBool(true);
     }
 

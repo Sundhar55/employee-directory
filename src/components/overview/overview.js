@@ -1,8 +1,11 @@
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import './overview.css'
+import {useSelector} from 'react-redux';
 
 const OverView = (props) =>{
     const {params}= useParams();
+    const selectedEmployee = useSelector(state => state);
+    console.log('the selected user from store is', selectedEmployee);
     const loc = useLocation();
     console.log('params is ', params, loc);
     const subOrdinates =  loc.state.emp.length >1 
